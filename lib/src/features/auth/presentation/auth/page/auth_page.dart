@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:journo/src/features/auth/presentation/user_login/pages/user_login_page.dart';
+import 'package:journo/src/features/auth/presentation/user_signup/page/user_signup_page.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -19,11 +21,11 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     if (a) {
-      return LoginPage(
+      return UserLoginPage(
         show: go,
       );
     } else {
-      return LoginPage(show: go);
+      return UserSignupPage(show: go);
     }
   }
 }
