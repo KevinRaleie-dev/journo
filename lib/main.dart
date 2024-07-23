@@ -18,20 +18,20 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(body: const AuthPage()),
+      home: const Scaffold(body: AuthPage()),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("We did it, so proud!"),
-      ),
-    );
-  }
-}
+// class HomePage extends StatelessWidget {
+//   const HomePage({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Scaffold(
+//       body: Center(
+//         child: Text("We did it, so proud!"),
+//       ),
+//     );
+//   }
+// }
