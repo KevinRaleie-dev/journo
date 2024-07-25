@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
-import 'package:journo/src/widgets/screens/app_bar_screen.dart';
 import 'package:journo/src/widgets/screens/auth_layout_screen.dart';
 import 'package:journo/src/widgets/textfields/long_textfield_form.dart';
 
