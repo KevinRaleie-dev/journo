@@ -12,7 +12,7 @@ class AuthLayoutScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.only(top: 120, left: 15, right: 15),
+            padding: const EdgeInsets.only(top: 70, left: 15, right: 15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
