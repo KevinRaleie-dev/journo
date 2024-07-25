@@ -27,7 +27,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
                   fontSize: 30),
             ),
             SizedBox(),
-            Text("Write. Reflect. Grow")
+            Text("Write. Reflect. Grow.")
           ],
         ),
       ),

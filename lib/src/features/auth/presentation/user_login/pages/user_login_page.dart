@@ -30,7 +30,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     fontSize: 30),
               ),
               SizedBox(),
-              Text("Write. Reflect. Grow")
+              Text("Write. Reflect. Grow.")
             ],
           ),
         ),
