@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
 import 'package:journo/src/widgets/screens/app_bar_screen.dart';
+import 'package:journo/src/widgets/screens/auth_layout_screen.dart';
 import 'package:journo/src/widgets/textfields/long_textfield_form.dart';
 
 class UserLoginPage extends StatefulWidget {
@@ -16,11 +17,7 @@ class UserLoginPage extends StatefulWidget {
 class _UserLoginPageState extends State<UserLoginPage> {
   @override
   Widget build(BuildContext context) {
-    return AppBarScreen(
-      shouldScroll: false,
-      title: "Login Screen",
-      shouldHaveFloatingButton: false,
-      shouldBeCentered: true,
+    return AuthLayoutScreen(
       children: [
         LongTextFieldForm(
             onChanged: (value) {},
