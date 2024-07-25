@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
+import 'package:journo/src/widgets/containers/auth_containers.dart';
 import 'package:journo/src/widgets/screens/auth_layout_screen.dart';
 import 'package:journo/src/widgets/textfields/long_textfield_form.dart';
 
@@ -33,9 +34,9 @@ class _UserLoginPageState extends State<UserLoginPage> {
             ],
           ),
         ),
-       const SizedBox(
-         height: 40,
-       ),
+        const SizedBox(
+          height: 40,
+        ),
         LongTextFieldForm(
             onChanged: (value) {},
             hintText: "Username",
@@ -62,9 +63,25 @@ class _UserLoginPageState extends State<UserLoginPage> {
           child: const Text("Don't have an account signup?"),
         ),
         const SizedBox(
+          height: 10,
+        ),
+        LongRectangleButton(onTap: () {}, title: "Login"),
+        const SizedBox(
+          height: 20,
+        ),
+        const AuthContainer(
+          title: 'Continue with google',
+          color: Colors.blue,
+          iconData: Icons.g_mobiledata_rounded,
+        ),
+        const SizedBox(
           height: 15,
         ),
-        LongRectangleButton(onTap: () {}, title: "Login")
+        const AuthContainer(
+          title: 'Continue with apple',
+          color: Colors.black,
+          iconData: Icons.apple,
+        )
       ],
     );
   }
