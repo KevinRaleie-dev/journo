@@ -71,8 +71,22 @@ class _UserLoginPageState extends State<UserLoginPage> {
           height: 20,
         ),
         LongRectangleButton(onTap: () {}, title: "Login"),
-        Row(
-          children: [Divider()],
+        const SizedBox(
+          height: 20,
+        ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Divider(
+              color: Colors.black,
+              thickness: 10,
+            ),
+            Text("Or continue with"),
+            Divider(
+              color: Colors.black,
+            )
+          ],
         ),
         const SizedBox(
           height: 20,
@@ -94,9 +108,15 @@ class _UserLoginPageState extends State<UserLoginPage> {
             ),
           ],
         ),
+        const SizedBox(
+          height: 70,
+        ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("Already have an account"),
+            const Text("Already have an account?"),
+            ///Todo: fix padding,
             TextButton(
               onPressed: widget.show,
               child: Text(
@@ -105,7 +125,8 @@ class _UserLoginPageState extends State<UserLoginPage> {
               ),
             ),
           ],
-        )
+        ),
+
       ],
     );
   }
