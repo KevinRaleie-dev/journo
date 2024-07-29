@@ -30,7 +30,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
                     fontSize: 30),
               ),
               SizedBox(),
-              Text("Write. Reflect. Grow.")
+              Text("Welcome back")
             ],
           ),
         ),
@@ -46,8 +46,17 @@ class _UserLoginPageState extends State<UserLoginPage> {
             prefixIcon: Icons.person,
             validator: (value) {},
             obsureText: false),
-        const SizedBox(
-          height: 20,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            TextButton(
+                onPressed: () {},
+                child: const Text(
+                  "Forgot password?",
+                  style: TextStyle(color: Colors.black, fontSize: 12),
+                ))
+          ],
         ),
         LongTextFieldForm(
             onChanged: (value) {},
@@ -58,29 +67,44 @@ class _UserLoginPageState extends State<UserLoginPage> {
             prefixIcon: Icons.password,
             validator: (value) {},
             obsureText: true),
-        TextButton(
-          onPressed: widget.show,
-          child: const Text("Don't have an account signup?"),
-        ),
-        const SizedBox(
-          height: 10,
-        ),
-        LongRectangleButton(onTap: () {}, title: "Login"),
         const SizedBox(
           height: 20,
         ),
-        const AuthContainer(
-          title: 'Continue with google',
-          color: Colors.blue,
-          iconData: Icons.g_mobiledata_rounded,
+        LongRectangleButton(onTap: () {}, title: "Login"),
+        Row(
+          children: [Divider()],
         ),
         const SizedBox(
-          height: 15,
+          height: 20,
         ),
-        const AuthContainer(
-          title: 'Continue with apple',
-          color: Colors.black,
-          iconData: Icons.apple,
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            AuthContainer(
+              color: Colors.blue,
+              iconData: Icons.g_mobiledata_rounded,
+            ),
+            AuthContainer(
+              color: Colors.black,
+              iconData: Icons.apple,
+            ),
+            AuthContainer(
+              color: Colors.blue,
+              iconData: Icons.facebook,
+            ),
+          ],
+        ),
+        Row(
+          children: [
+            const Text("Already have an account"),
+            TextButton(
+              onPressed: widget.show,
+              child: Text(
+                "Signup",
+                style: TextStyle(color: Colors.purple[900]),
+              ),
+            ),
+          ],
         )
       ],
     );

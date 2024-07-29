@@ -5,7 +5,6 @@ import 'package:journo/src/widgets/textfields/long_textfield_form.dart';
 
 class UserSignupPage extends StatefulWidget {
   final Function() show;
-
   const UserSignupPage({super.key, required this.show});
 
   @override
