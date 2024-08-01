@@ -10,6 +10,7 @@ class AuthLayoutScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.only(top: 70, left: 15, right: 15),

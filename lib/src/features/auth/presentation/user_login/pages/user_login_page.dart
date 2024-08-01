@@ -75,17 +75,24 @@ class _UserLoginPageState extends State<UserLoginPage> {
           height: 20,
         ),
         const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Divider(
-              color: Colors.black,
-              thickness: 10,
+              color: Colors.grey,
+              height: 20,
+              thickness: 2,
+              indent: 15,
+              endIndent: 15,
             ),
             Text("Or continue with"),
             Divider(
-              color: Colors.black,
-            )
+              color: Colors.grey,
+              height: 10,
+              thickness: 1,
+              indent: 5,
+              endIndent: 55,
+            ),
           ],
         ),
         const SizedBox(
@@ -115,18 +122,18 @@ class _UserLoginPageState extends State<UserLoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text("Already have an account?"),
+            const Text("Don't have an account?"),
+
             ///Todo: fix padding,
             TextButton(
               onPressed: widget.show,
               child: Text(
-                "Signup",
+                "Sign Up",
                 style: TextStyle(color: Colors.purple[900]),
               ),
             ),
           ],
         ),
-
       ],
     );
   }
