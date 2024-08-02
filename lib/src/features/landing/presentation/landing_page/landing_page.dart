@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journo/src/features/auth/presentation/auth/page/auth_page.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_button_secondary.dart';
 
@@ -33,12 +34,16 @@ class LandingPage extends StatelessWidget {
             const Spacer(),
             LongRectangleButton(
               title: 'Create Account',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthPage()));
+              },
             ),
             const SizedBox(height: 10),
             LongRectangleButtonSecondary(
               title: 'Sign in',
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const AuthPage()));
+              },
             ),
             TextButton(
               onPressed: () {},
