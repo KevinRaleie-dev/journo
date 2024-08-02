@@ -84,6 +84,9 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongRectangleButton(onTap: () {}, title: "Sign Up"),
+      const SizedBox(
+        height: 20,
+      ),
       const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -95,7 +98,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
             indent: 15,
             endIndent: 15,
           ),
-          Text("Or continue with"),
+          Text("Or sign in with"),
           Divider(
             color: Colors.grey,
             height: 10,
@@ -104,6 +107,9 @@ class _UserSignupPageState extends State<UserSignupPage> {
             endIndent: 55,
           ),
         ],
+      ),
+      const SizedBox(
+        height: 20,
       ),
       const Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -122,21 +128,24 @@ class _UserSignupPageState extends State<UserSignupPage> {
           ),
         ],
       ),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const Text("Already have an account?"),
+      Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Text("Already have an account?"),
 
-          ///Todo: fix padding,
-          TextButton(
-            onPressed: widget.show,
-            child: Text(
-              "Sign In",
-              style: TextStyle(color: Colors.purple[900]),
+            ///Todo: fix padding,
+            TextButton(
+              onPressed: widget.show,
+              child: Text(
+                "Sign In",
+                style: TextStyle(color: Colors.purple[900]),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ]);
   }

@@ -118,21 +118,24 @@ class _UserLoginPageState extends State<UserLoginPage> {
         const SizedBox(
           height: 70,
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text("Don't have an account?"),
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text("Don't have an account?"),
 
-            ///Todo: fix padding,
-            TextButton(
-              onPressed: widget.show,
-              child: Text(
-                "Sign Up",
-                style: TextStyle(color: Colors.purple[900]),
+              ///Todo: fix padding,
+              TextButton(
+                onPressed: widget.show,
+                child: Text(
+                  "Sign Up",
+                  style: TextStyle(color: Colors.purple[900]),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
