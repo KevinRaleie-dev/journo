@@ -16,7 +16,9 @@ class LongRectangleButton extends StatelessWidget {
         width: 380,
         height: 55,
         decoration: BoxDecoration(
-            color: Colors.yellow, borderRadius: BorderRadius.circular(15)),
+            color: const Color(
+                0xFFFFFF00), //   use actual figma color - need to create a color scheme
+            borderRadius: BorderRadius.circular(15)),
         child: Center(
           child: Text(
             title,
