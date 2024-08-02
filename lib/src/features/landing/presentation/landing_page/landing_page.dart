@@ -6,6 +6,20 @@ import 'package:journo/src/widgets/buttons/long_rectangle_button_secondary.dart'
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
+  static const List<String> taglines = [
+    'Your writing, simplified',
+    'Mongolo oa hau, o nolofalitsoe',
+    'Mongwalo wa gago, o nolofaditšwe',
+    'Ukubhala kwakho, kwenziwe kwaba lula',
+    'Ukubhala kwakho, kwenziwe lula',
+    'Tsalwa ra wena, ri olovisiwile',
+    'Jou skryfwerk, vereenvoudig',
+    'Mokwalo wa gago, o nolofaditswe',
+    'Ukutlola kwakho, okwenziwe lula',
+    'Vhuṅwali haṋu, ho leludzwaho',
+    'Kubhala kwakho, kwentiwe kwaba lula'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,10 +41,21 @@ class LandingPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Your writing, simplified!',
-              style: TextStyle(fontSize: 16),
-            ),
+              AnimatedSwitcher(
+                duration: const Duration(seconds: 2),
+                child: StreamBuilder<int>(
+                  stream: Stream.periodic(const Duration(seconds: 2), (i) => i % taglines.length),
+                  builder: (context, snapshot) {
+                    return Center(
+                      child: Text(
+                        taglines[snapshot.data ?? 0],
+                        key: ValueKey<String>(taglines[snapshot.data ?? 0]),
+                      style: const TextStyle(fontSize: 16),
+                    ),
+                  );
+                },
+              ),
+              ),
             const Spacer(),
             LongRectangleButton(
               title: 'Create Account',
