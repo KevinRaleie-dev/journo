@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// change this to LongRectangleButtonPrimary
 class LongRectangleButton extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
@@ -17,7 +18,14 @@ class LongRectangleButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.yellow, borderRadius: BorderRadius.circular(15)),
         child: Center(
-          child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold),),
+          child: Text(
+            title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Merriweather',
+              fontSize: 20,
+            ),
+          ),
         ),
       ),
     );

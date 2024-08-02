@@ -19,10 +19,16 @@ class LongRectangleButtonSecondary extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             border: Border.all(color: Colors.black, width: 2)),
         child: Center(
-          child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.black),),
+          child: Text(
+            title,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontFamily: 'Merriweather',
+                fontSize: 20),
+          ),
         ),
       ),
     );
   }
 }
-
