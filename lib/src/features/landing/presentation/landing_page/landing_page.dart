@@ -7,17 +7,17 @@ class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
 
   static const List<String> taglines = [
-    'Your writing, simplified',
-    'Mongolo oa hau, o nolofalitsoe',
-    'Mongwalo wa gago, o nolofaditšwe',
-    'Ukubhala kwakho, kwenziwe kwaba lula',
-    'Ukubhala kwakho, kwenziwe lula',
-    'Tsalwa ra wena, ri olovisiwile',
-    'Jou skryfwerk, vereenvoudig',
-    'Mokwalo wa gago, o nolofaditswe',
-    'Ukutlola kwakho, okwenziwe lula',
-    'Vhuṅwali haṋu, ho leludzwaho',
-    'Kubhala kwakho, kwentiwe kwaba lula'
+    'Your writing, simplified.',
+    'Mongolo oa hau, o nolofalitsoe.',
+    'Mongwalo wa gago, o nolofaditšwe.',
+    'Ukubhala kwakho, kwenziwe kwaba lula.',
+    'Ukubhala kwakho, kwenziwe lula.',
+    'Tsalwa ra wena, ri olovisiwile.',
+    'Jou skryfwerk, vereenvoudig.',
+    'Mokwalo wa gago, o nolofaditswe.',
+    'Ukutlola kwakho, okwenziwe lula.',
+    'Vhuṅwali haṋu, ho leludzwaho.',
+    'Kubhala kwakho, kwentiwe kwaba lula.',
   ];
 
   @override
@@ -39,7 +39,7 @@ class LandingPage extends StatelessWidget {
             const SizedBox(height: 30),
             const Center(
               child: Text(
-                'Write. Reflect. Grow.',
+                'Write, Reflect, Grow.',
                 style: TextStyle(
                   fontSize: 80,
                   fontWeight: FontWeight.bold,
