@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-// change this to LongRectangleButtonPrimary
-class LongRectangleButton extends StatelessWidget {
+class LongRectangleButtonSecondary extends StatelessWidget {
   final VoidCallback onTap;
   final String title;
 
-  const LongRectangleButton(
+  const LongRectangleButtonSecondary(
       {super.key, required this.onTap, required this.title});
 
   @override
@@ -16,17 +15,17 @@ class LongRectangleButton extends StatelessWidget {
         width: 380,
         height: 55,
         decoration: BoxDecoration(
-            color: const Color(
-                0xFFFFFF00), //   use actual figma color - need to create a color scheme
-            borderRadius: BorderRadius.circular(15)),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: Colors.black, width: 2)),
         child: Center(
           child: Text(
             title,
             style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Merriweather',
-              fontSize: 20,
-            ),
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+                fontFamily: 'Merriweather',
+                fontSize: 20),
           ),
         ),
       ),
