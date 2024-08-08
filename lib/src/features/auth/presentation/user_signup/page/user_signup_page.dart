@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
 import 'package:journo/src/widgets/screens/auth_layout_screen.dart';
@@ -13,6 +14,17 @@ class UserSignupPage extends StatefulWidget {
 }
 
 class _UserSignupPageState extends State<UserSignupPage> {
+  final _formKey = GlobalKey<FormState>();
+  final email = TextEditingController();
+  FocusNode email_f = FocusNode();
+  final username = TextEditingController();
+  FocusNode username_f = FocusNode();
+  final password = TextEditingController();
+  FocusNode password_f = FocusNode();
+  final passwordConfirm = TextEditingController();
+  FocusNode passwordConfirm_f = FocusNode();
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return AuthLayoutScreen(children: [
@@ -35,6 +47,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongTextFieldForm(
+          controller: username,
           onChanged: (value) {},
           hintText: "Username",
           labelText: "Username",
@@ -47,6 +60,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongTextFieldForm(
+          controller: email,
           onChanged: (value) {},
           hintText: "Email",
           labelText: "Email",
@@ -59,6 +73,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongTextFieldForm(
+          controller: password,
           onChanged: (value) {},
           hintText: "Password",
           labelText: "Password",
@@ -71,6 +86,7 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongTextFieldForm(
+          controller: passwordConfirm,
           onChanged: (value) {},
           hintText: "Confirm Password",
           labelText: "Confirm Password",
@@ -86,7 +102,44 @@ class _UserSignupPageState extends State<UserSignupPage> {
       const SizedBox(
         height: 20,
       ),
-      LongRectangleButton(onTap: () {}, title: "Sign Up")
+      LongRectangleButton(
+          onTap: () {
+            _signUp();
+          },
+          title: "Sign Up")
     ]);
+  }
+
+  Future<void> _signUp() async {
+    setState(() {
+      isLoading = true;
+    });
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email.text,
+        password: password.text,
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Successfully signed up!'),
+        backgroundColor: Colors.red,
+      ));
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Failed to sign up: $e')));
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Failed to sign up: $e')));
+      setState(() {
+        isLoading = false;
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 }
