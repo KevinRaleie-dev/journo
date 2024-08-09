@@ -14,16 +14,16 @@ class LongTextFieldForm extends StatefulWidget {
 
   const LongTextFieldForm(
       {super.key,
-        this.controller,
-        this.focusNode,
-        required this.onChanged,
-        required this.hintText,
-        required this.labelText,
-        required this.showSuffixIcon,
-        required this.showPrefixIcon,
-        this.prefixIcon,
-        required this.validator,
-        required this.obsureText});
+      this.controller,
+      this.focusNode,
+      required this.onChanged,
+      required this.hintText,
+      required this.labelText,
+      required this.showSuffixIcon,
+      required this.showPrefixIcon,
+      this.prefixIcon,
+      required this.validator,
+      required this.obsureText});
 
   @override
   State<LongTextFieldForm> createState() => _LongTextFieldFormState();
@@ -51,15 +51,15 @@ class _LongTextFieldFormState extends State<LongTextFieldForm> {
         prefixIcon: widget.showPrefixIcon ? Icon(widget.prefixIcon) : null,
         suffixIcon: widget.showSuffixIcon
             ? IconButton(
-          onPressed: () {
-            setState(() {
-              passwordVisible = !passwordVisible;
-            });
-          },
-          icon: Icon(passwordVisible
-              ? Icons.visibility_off_sharp
-              : Icons.visibility_sharp),
-        )
+                onPressed: () {
+                  setState(() {
+                    passwordVisible = !passwordVisible;
+                  });
+                },
+                icon: Icon(passwordVisible
+                    ? Icons.visibility_off_sharp
+                    : Icons.visibility_sharp),
+              )
             : null,
         hintText: widget.hintText,
         labelText: widget.labelText,

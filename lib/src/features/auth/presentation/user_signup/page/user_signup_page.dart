@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:journo/src/data/data_model/model.dart';
+import 'package:journo/src/data/data_service/service.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
 import 'package:journo/src/widgets/screens/auth_layout_screen.dart';
 import 'package:journo/src/widgets/textfields/long_textfield_form.dart';
@@ -14,7 +16,7 @@ class UserSignupPage extends StatefulWidget {
 }
 
 class _UserSignupPageState extends State<UserSignupPage> {
-  final _formKey = GlobalKey<FormState>();
+ // final _formKey = GlobalKey<FormState>();
   final email = TextEditingController();
   FocusNode email_f = FocusNode();
   final username = TextEditingController();
@@ -103,8 +105,15 @@ class _UserSignupPageState extends State<UserSignupPage> {
         height: 20,
       ),
       LongRectangleButton(
-          onTap: () {
-            _signUp();
+          onTap: () async {
+            try{
+              SignUpModel newUser =
+              SignUpModel(name: username.text, email: email.text);
+              var status = await SignUpDataService.createUser(newUser);
+              if (status == "success") {
+                _signUp();
+              }
+            }catch(e){print(e);}
           },
           title: "Sign Up")
     ]);
