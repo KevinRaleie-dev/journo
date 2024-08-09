@@ -12,14 +12,14 @@ class AppBarScreen extends StatelessWidget {
 
   const AppBarScreen(
       {super.key,
-        required this.shouldScroll,
-        required this.title,
-        required this.children,
-        this.floatingActionButton,
-        required this.shouldHaveFloatingButton,
-        this.tooltip,
-        this.icon,
-        required this.shouldBeCentered});
+      required this.shouldScroll,
+      required this.title,
+      required this.children,
+      this.floatingActionButton,
+      required this.shouldHaveFloatingButton,
+      this.tooltip,
+      this.icon,
+      required this.shouldBeCentered});
 
   @override
   Widget build(BuildContext context) {
@@ -38,24 +38,24 @@ class AppBarScreen extends StatelessWidget {
             child: Center(
               child: shouldBeCentered
                   ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: children)
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: children)
                   : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: children),
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: children),
             ),
           ),
         ),
       ),
       floatingActionButton: shouldHaveFloatingButton
           ? FloatingActionButton(
-        backgroundColor: Colors.red,
-        onPressed: floatingActionButton,
-        tooltip: tooltip,
-        child: Icon(icon),
-      )
+              backgroundColor: Colors.red,
+              onPressed: floatingActionButton,
+              tooltip: tooltip,
+              child: Icon(icon),
+            )
           : null,
     );
   }

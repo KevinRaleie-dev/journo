@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:journo/src/widgets/buttons/long_rectangle_buttons.dart';
 import 'package:journo/src/widgets/containers/auth_containers.dart';
@@ -15,6 +16,14 @@ class UserLoginPage extends StatefulWidget {
 }
 
 class _UserLoginPageState extends State<UserLoginPage> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController email = TextEditingController();
+  FocusNode emailFocus = FocusNode();
+  TextEditingController password = TextEditingController();
+  FocusNode passwordFocus = FocusNode();
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return AuthLayoutScreen(
@@ -38,6 +47,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
           height: 40,
         ),
         LongTextFieldForm(
+            controller: email,
             onChanged: (value) {},
             hintText: "Username",
             labelText: "Username",
@@ -50,6 +60,7 @@ class _UserLoginPageState extends State<UserLoginPage> {
           height: 20,
         ),
         LongTextFieldForm(
+            controller: password,
             onChanged: (value) {},
             hintText: "Password",
             labelText: "Password",
@@ -65,7 +76,11 @@ class _UserLoginPageState extends State<UserLoginPage> {
         const SizedBox(
           height: 10,
         ),
-        LongRectangleButton(onTap: () {}, title: "Login"),
+        LongRectangleButton(
+            onTap: () {
+              _login();
+            },
+            title: "Login"),
         const SizedBox(
           height: 20,
         ),
@@ -84,5 +99,45 @@ class _UserLoginPageState extends State<UserLoginPage> {
         )
       ],
     );
+  }
+
+  Future<void> _login() async {
+    setState(() {
+      isLoading = true;
+    });
+
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email.text,
+        password: password.text,
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Successfully logged in!'),
+        backgroundColor: Colors.red,
+      ));
+      print("Logged in: ${userCredential.user?.email}");
+      var userToken = await FirebaseAuth.instance.currentUser!.getIdToken();
+      print(userToken);
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(e.message ?? "Login failed"),
+        ),
+      );
+      setState(() {
+        isLoading = false;
+      });
+    } catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Failed to sign up: $e')));
+      setState(() {
+        isLoading = false;
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 }
